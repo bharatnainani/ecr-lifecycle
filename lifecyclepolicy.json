@@ -1,0 +1,69 @@
+{
+    "rules": [
+        {
+            "rulePriority": 10,
+            "description": "Keep latest tag image",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ["latest"],
+                "countType": "imageCountMoreThan",
+                "countNumber": 1
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 20,
+            "description": "Keep develop tag image",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ["master"],
+                "countType": "imageCountMoreThan",
+                "countNumber": 1
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 30,
+            "description": "Keep master tag image",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ["develop"],
+                "countType": "imageCountMoreThan",
+                "countNumber": 1
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 40,
+            "description": "Only keep untagged images for 7 days",
+            "selection": {
+                "tagStatus": "untagged",
+                "countType": "sinceImagePushed",
+                "countUnit": "days",
+                "countNumber": 7
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 50,
+            "description": "All images either tag or untag should be removed after  120 days",
+            "selection": {
+                "tagStatus": "any",
+                "countType": "sinceImagePushed",
+                "countUnit": "days",
+                "countNumber": 120
+            },
+            "action": {
+                "type": "expire"
+            }
+        }
+    ]
+}
