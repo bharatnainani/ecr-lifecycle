@@ -1,8 +1,8 @@
 # ecr-lifecycle
 
 ## About
-**ecr-lifecycle** This code manage the lifecycle policy for ECR and it get applied to repository as soon someone pushes the image to ECR
-you can change teh policy json file(**lifecyclepolicy.json**)  depending  upon your need..
+**ecr-lifecycle** This code manage the lifecycle policy for ECR and it get applied to repository as soon as someone pushes the image to ECR
+you can change the policy json file(**lifecyclepolicy.json**)  depending  upon your need..
 
 
 ## Development Setup
@@ -10,7 +10,7 @@ you can change teh policy json file(**lifecyclepolicy.json**)  depending  upon y
    ```
    git clone https://github.com/bharatnainani/ecr-lifecycle.git
    cd ecr-lifecycle
-
+   ```
 
 2. Install serverless framework (may require sudo)
    ```
